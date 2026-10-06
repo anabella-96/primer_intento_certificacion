@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h1>Películas</h1>
+
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Director</th>
+        <th>Fecha Estreno</th>
+        <th>Acciones</th>
+    </tr>
+    {% for p in peliculas %}
+    <tr>
+        <td>{{ p.nombre_pelicula }}</td>
+        <td>{{ p.director }}</td>
+        <td>{{ p.fecha_estreno }}</td>
+        <td>
+            <a href="{{ url_for('ver_peli', id_peli=p.id) }}" class="btn-azul">Ver</a>
+            <a href="{{ url_for('editar_peli', id_peli=p.id) }}" class="btn-amarillo">Editar</a>
+            <a href="{{ url_for('borrar_peli', id_peli=p.id) }}" class="btn-rojo"
+               onclick="return confirmarBorrado()">Borrar</a>
+        </td>
+    </tr>
+    {% else %}
+    <tr><td colspan="4">No hay películas aún. ¡Agrega la primera!</td></tr>
+    {% endfor %}
+</table>
+{% endblock %}

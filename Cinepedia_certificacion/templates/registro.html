@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h1>CinePedia</h1>
+
+<div class="fila">
+    <div class="caja">
+        <h2>Registro</h2>
+        <form action="{{ url_for('registrarse') }}" method="post" id="form-registro">
+            <label>Nombre:</label>
+            <input type="text" name="nombre" required>
+
+            <label>Apellido:</label>
+            <input type="text" name="apellido" required>
+
+            <label>E-mail:</label>
+            <input type="email" name="email" required>
+
+            <label>Contraseña:</label>
+            <input type="password" name="contraseña" required>
+
+            <label>Repetir contraseña:</label>
+            <input type="password" name="confirmar" required>
+
+            <button>Registrar</button>
+        </form>
+    </div>
+
+    <div class="caja">
+        <h2>Iniciar Sesión</h2>
+        <form action="{{ url_for('entrar') }}" method="post">
+            <label>E-mail:</label>
+            <input type="email" name="email_login" required>
+
+            <label>Contraseña:</label>
+            <input type="password" name="contraseña_login" required>
+
+            <button>Entrar</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

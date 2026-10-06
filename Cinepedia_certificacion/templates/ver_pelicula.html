@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h2>{{ peli.nombre_pelicula }}</h2>
+<p><strong>Director:</strong> {{ peli.director }}</p>
+<p><strong>Fecha de estreno:</strong> {{ peli.fecha_estreno }}</p>
+<h3>Sinopsis</h3>
+<p>{{ peli.sinopsis }}</p>
+
+<hr>
+<h3>Comentarios</h3>
+
+{% if session.usuario_id and dueño_id and session.usuario_id != dueño_id %}
+<form method="post" class="comentario-form">
+    <input type="text" name="comentario" placeholder="Escribe un comentario..." required>
+    <button>Enviar</button>
+</form>
+{% elif session.usuario_id and dueño_id and session.usuario_id == dueño_id %}
+<p class="aviso">No puedes comentar tu propia película</p>
+{% endif %}
+
+<div>
+    {% for c in comentarios %}
+    <div class="comentario">
+        <strong>{{ c.nombre }}</strong>
+        <p>{{ c.comentario }}</p>
+    </div>
+    {% else %}
+    <p>Sin comentarios aún. ¡Sé el primero!</p>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h1>Nueva Película</h1>
+
+<form method="post">
+    <label>Nombre de la película:</label>
+    <input type="text" name="nombre_pelicula" required>
+
+    <label>Director:</label>
+    <input type="text" name="director" required>
+
+    <label>Fecha de estreno:</label>
+    <input type="date" name="fecha_estreno" required>
+
+    <label>Sinopsis:</label>
+    <textarea name="sinopsis" required></textarea>
+
+    <button>Guardar Película</button>
+</form>
+{% endblock %}

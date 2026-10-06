@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h1>Editar Película</h1>
+
+<form method="post">
+    <label>Nombre de la película:</label>
+    <input type="text" name="nombre_pelicula" value="{{ peli.nombre_pelicula }}" required>
+
+    <label>Director:</label>
+    <input type="text" name="director" value="{{ peli.director }}" required>
+
+    <label>Fecha de estreno:</label>
+    <input type="date" name="fecha_estreno" value="{{ peli.fecha_estreno }}" required>
+
+    <label>Sinopsis:</label>
+    <textarea name="sinopsis" required>{{ peli.sinopsis }}</textarea>
+
+    <button>Guardar Cambios</button>
+</form>
+{% endblock %}
